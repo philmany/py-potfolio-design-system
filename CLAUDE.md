@@ -11,5 +11,4 @@ This repo is the design source of truth for philmanyeung.com (`philmany/py-portf
 7. Two accents only: tangerine `--accent-2` for action/emphasis, teal `--accent` for state/place.
 8. Serif headings always tight (`--track-display` + `--word-display`), emphasis via `<em>` italic tangerine.
 9. Changing `tokens.css`: run `python3 scripts/build_json.py` and copy the file to `py-portfolio/tokens.css` verbatim.
-10. Don't edit `/work/pretzel` styles; it mirrors `philmany/pretzel-case-study`.
-11. Docs stay terse: specs and rules, no marketing copy.
+10. Docs stay terse: specs and rules, no marketing copy.

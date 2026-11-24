@@ -34,5 +34,4 @@ Target: WCAG 2.2 AA, plus Apple Human Interface Guidelines where they're stricte
 ## Exceptions on record
 
 - Brand logos at 0.32 opacity: logotypes are exempt from contrast.
-- `/work/pretzel` is a copy of `philmany/pretzel-case-study` with its own styles (DM Sans, Instrument Serif); not on these tokens.
 - Lake colours depend on the moving water; hero text sits on a dimmed, masked centre and stays above 11:1 against `--bg`.
