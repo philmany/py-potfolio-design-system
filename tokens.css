@@ -1,0 +1,197 @@
+/* py design system: tokens. Source of truth for philmanyeung.com.
+   Copy this file verbatim to py-portfolio/tokens.css. Never edit the copy. */
+
+@font-face { font-family: "ZT Nature"; src: url("/fonts/ZTNature-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "ZT Nature"; src: url("/fonts/ZTNature-Italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "ZT Nature"; src: url("/fonts/ZTNature-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "ZT Nature"; src: url("/fonts/ZTNature-BoldItalic.woff2") format("woff2"); font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: "PP Museum"; src: url("/fonts/PPMuseum-Light.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "PP Museum"; src: url("/fonts/PPMuseum-LightItalic.woff2") format("woff2"); font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: "PP Museum"; src: url("/fonts/PPMuseum-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "PP Museum"; src: url("/fonts/PPMuseum-Italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "PP Museum"; src: url("/fonts/PPMuseum-Ultrabold.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "PP Museum"; src: url("/fonts/PPMuseum-UltraboldItalic.woff2") format("woff2"); font-weight: 800; font-style: italic; font-display: swap; }
+
+:root {
+  color-scheme: dark;
+
+  /* ---------- color: surfaces ---------- */
+  --bg: #140a18;                          /* page, aubergine-black */
+  --bg-2: #1e1223;                        /* raised: preview frame, tiles */
+  --surface: #1a0f1f;                     /* solid card: memory card, portrait, thumbs */
+  --glass: rgba(20, 10, 24, 0.76);        /* + blur(--blur): nav, chips, captions */
+  --glass-strong: rgba(20, 10, 24, 0.92); /* tooltip, caption gradient stop */
+  --glass-raised: rgba(30, 18, 35, 0.86); /* pill + icon buttons over water */
+  --glass-raised-hover: rgba(40, 25, 47, 0.94);
+  --scrim: rgba(12, 6, 15, 0.96);         /* lightbox */
+
+  /* ---------- color: content ---------- */
+  --text: #f3ede8;                        /* warm white. 16.6:1 on --bg */
+  --text-strong: #ffffff;                 /* names, lockups, "Welcome." */
+  --text-2: rgba(243, 237, 232, 0.84);    /* lede over water. 11.4:1 */
+  --muted: #aea2b1;                       /* meta, captions. 7.9:1 */
+  --line: rgba(243, 233, 240, 0.12);      /* hairlines, dividers (decorative) */
+  --line-2: rgba(243, 233, 240, 0.22);    /* chip + card borders (decorative) */
+
+  /* ---------- color: accents (only two) ---------- */
+  --accent: #5fd3c4;                      /* teal: focus, dates, places, live states. 10.7:1 */
+  --accent-2: #ff8a3d;                    /* tangerine: CTA, emphasis <em>, progress. 8.2:1 */
+  --accent-2-hover: #ffa05f;
+  --on-accent: var(--bg);                 /* text on either accent. 8.2:1 min */
+  --accent-wash: rgba(95, 211, 196, 0.08);
+  --accent-edge: rgba(95, 211, 196, 0.55);
+  --accent-2-edge: rgba(255, 138, 61, 0.6);
+
+  /* ---------- color: print (riso) ---------- */
+  --ink-teal: #1aa39d;                    /* drum A on dark, blend: screen */
+  --ink-orange: #ff6436;                  /* drum B on dark, offset -2px y */
+  --ink-teal-stock: #0f8a8c;              /* drum A on cream, blend: multiply */
+  --ink-orange-stock: #ff6a4d;
+  --ink-fallback: #1c7076;                /* static halftone before canvas boots */
+  --paper: #f4efe8;                       /* snapshot border */
+  --tape: rgba(243, 237, 232, 0.5);
+
+  /* ---------- type ---------- */
+  --sans: "ZT Nature", "Helvetica Neue", Arial, sans-serif;           /* body + UI */
+  --serif: "PP Museum", "Iowan Old Style", Georgia, serif;            /* headings, always set tight */
+
+  /* fixed ramp (rem, follows Apple text styles; 12px floor) */
+  --fs-caption-2: 0.6875rem; /* 11  Caption 2: inline badge only */
+  --fs-caption: 0.75rem;     /* 12  Caption 1 */
+  --fs-footnote: 0.8125rem;  /* 13  Footnote: meta, chips, eyebrow, controls */
+  --fs-subhead: 0.9375rem;   /* 15  Subheadline: nav, pill, card title */
+  --fs-callout: 1rem;        /* 16  Callout: buttons, mobile body */
+  --fs-body: 1.0625rem;      /* 17  Body */
+  --fs-title-3: 1.25rem;     /* 20  Title 3: lede, place name */
+
+  /* fluid ramp */
+  --fs-lede: clamp(1rem, 1.5vw, 1.375rem);              /* 16-22 hero tagline, photo lede */
+  --fs-lead: clamp(1.0625rem, 1.4vw, 1.25rem);          /* 17-20 section sub */
+  --fs-prose: clamp(1.1875rem, 1.65vw, 1.5rem);         /* 19-24 About + photo prose */
+  --fs-link-lg: clamp(1.25rem, 2vw, 1.625rem);          /* 20-26 contact links, role */
+  --fs-quote-sm: clamp(1.25rem, 1.85vw, 1.75rem);       /* 20-28 pull quote, fact values */
+  --fs-quote: clamp(1.75rem, 2.7vw, 2.5rem);            /* 28-40 closing line */
+  --fs-title: clamp(1.75rem, 3.6vw, 3.375rem);          /* 28-54 row titles, page name */
+  --fs-display-sm: clamp(2.75rem, 5.5vw, 5.25rem);      /* 44-84 claim, ph-h2, lockup */
+  --fs-display: clamp(2.875rem, 6.1vw, 5.5rem);         /* 46-88 Work. Play. */
+  --fs-hero: clamp(3rem, 6.4vw, 5.75rem);               /* 48-92 hero name */
+  --fs-display-xl: clamp(3.5rem, 8.4vw, 8.25rem);       /* 56-132 closing heading */
+
+  --lh-display: 0.95;
+  --lh-title: 1.04;
+  --lh-ui: 1.2;
+  --lh-caption: 1.45;
+  --lh-body: 1.55;
+
+  --track-display: -0.05em;   /* serif display; pair with --word-display */
+  --track-hero: -0.045em;
+  --track-quote: -0.03em;
+  --track-title: -0.022em;
+  --track-tight: -0.01em;
+  --track-ui: 0.01em;
+  --track-label: 0.04em;
+  --track-caps: 0.14em;       /* uppercase eyebrow only */
+  --word-display: -0.06em;
+  --word-quote: -0.04em;
+
+  /* ---------- space (4px grid; half steps 2/6/10 for chips only) ---------- */
+  --space-0-5: 2px;
+  --space-1: 4px;
+  --space-1-5: 6px;
+  --space-2: 8px;
+  --space-2-5: 10px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-14: 56px;
+  --space-16: 64px;
+  --space-18: 72px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-30: 120px;
+
+  /* fluid layout */
+  --gutter: clamp(20px, 4vw, 56px);
+  --wrap: 1240px;
+  --section-y: clamp(72px, 9vw, 120px);        /* section top padding */
+  --stack-lg: clamp(28px, 3.5vw, 48px);        /* heading -> list */
+  --stack-xl: clamp(48px, 6vw, 80px);
+  --page-top: clamp(150px, 18vw, 240px);       /* first block under fixed nav */
+  --nav-h: 64px;                               /* scroll-padding for focus-not-obscured */
+
+  /* ---------- shape ---------- */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-pill: 999px;
+  --hairline: 1px;
+  --focus-ring: 2px;
+  --focus-offset: 4px;
+  --target: 44px;              /* min hit area, every interactive element */
+  --blur: 14px;
+  --blur-sm: 8px;
+
+  /* ---------- elevation ---------- */
+  --shadow-card: 0 10px 28px -10px rgba(6, 2, 9, 0.8);
+  --shadow-float: 0 40px 80px -30px rgba(0, 0, 0, 0.8);
+  --shadow-paper: 0 14px 28px rgba(8, 3, 12, 0.55), 0 2px 6px rgba(8, 3, 12, 0.4);
+  --drop-paper: drop-shadow(0 9px 12px rgba(8, 3, 12, 0.5)) drop-shadow(0 2px 3px rgba(8, 3, 12, 0.45));
+  --drop-paper-lift: drop-shadow(0 22px 28px rgba(8, 3, 12, 0.6)) drop-shadow(0 4px 6px rgba(8, 3, 12, 0.4));
+  --drop-outline: drop-shadow(0 0 1.5px rgba(12, 6, 16, 0.85)) drop-shadow(0 0 4px rgba(12, 6, 16, 0.45));
+  --feather: 0 0 22px 14px rgba(20, 10, 24, 0.72);   /* dark halo so a pill reads over water */
+  --glow-cta: 0 10px 30px -10px rgba(255, 138, 61, 0.6);
+  --glow-cta-hover: 0 0 0 6px rgba(255, 138, 61, 0.16), 0 14px 34px -10px rgba(255, 138, 61, 0.7);
+
+  /* ---------- layers ---------- */
+  --z-art: 1;
+  --z-hero-text: 3;
+  --z-hero-ctl: 4;
+  --z-peek: 90;
+  --z-nav: 100;
+  --z-progress: 120;
+  --z-tip: 260;
+  --z-flow: 300;
+  --z-skip: 500;
+
+  /* ---------- motion ----------
+     Two families so Reduce Motion can drop movement but keep dissolves.
+     fade-*: opacity, color, background, border, filter, shadow.
+     move-*: transform, translate, scale, clip-path, grid rows. */
+  --fade-fast: 150ms;     /* tooltip, layer swap */
+  --fade: 300ms;          /* hover color/border */
+  --fade-slow: 500ms;     /* dim, lake focus */
+  --fade-reveal: 900ms;   /* scroll reveal */
+  --move-fast: 200ms;     /* press, caret nudge */
+  --move: 400ms;          /* hover lift, underline, toggle knob */
+  --move-slow: 600ms;     /* row title slide, peek open */
+  --move-reveal: 900ms;   /* reveal rise, panel expand, split words */
+  --move-spring: 900ms;   /* memory zoom, snapshots, paper notes */
+  --stagger: 70ms;
+  --delay-hero: 450ms;    /* hero text waits for the lake */
+
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);        /* default out */
+  --ease-io: cubic-bezier(0.77, 0, 0.18, 1);     /* expand/collapse, mask wipes */
+  --ease-spring: cubic-bezier(0.22, 1.28, 0.36, 1); /* overshoot, objects with mass */
+  --ease-flip: cubic-bezier(0.3, 1.3, 0.5, 1);   /* rolodex in */
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);         /* rolodex out, exits */
+
+  /* aliases kept for older selectors */
+  --display: var(--fs-display);
+  --hero-name: var(--fs-hero);
+}
+
+/* Reduce Motion: no travel, no zoom, no parallax. Dissolves stay, capped short. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --move-fast: 0.01ms; --move: 0.01ms; --move-slow: 0.01ms; --move-reveal: 0.01ms; --move-spring: 0.01ms;
+    --fade: 200ms; --fade-slow: 200ms; --fade-reveal: 200ms;
+    --stagger: 0ms; --delay-hero: 0ms;
+  }
+}
